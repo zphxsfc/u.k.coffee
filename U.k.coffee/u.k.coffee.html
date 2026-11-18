@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>U. K. Coffee — кофейня в Киеве</title>
+<meta name="description" content="U. K. Coffee: свежий кофе, десерты и уютная атмосфера.">
+<style>
+  :root { --bg:#faf6f1; --dark:#2b1d14; --accent:#b5703a; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { font-family:system-ui,Arial,sans-serif; background:var(--bg); color:var(--dark); line-height:1.6; }
+  header { position:sticky; top:0; background:var(--dark); padding:14px 20px; display:flex; justify-content:space-between; align-items:center; z-index:10; }
+  header a { color:#fff; text-decoration:none; margin-left:18px; font-size:15px; }
+  header strong { color:#fff; font-size:18px; }
+  .hero { min-height:80vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:20px;
+          background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url('photos/hero.jpg') center/cover; color:#fff; }
+  .hero h1 { font-size:clamp(32px,6vw,58px); margin-bottom:10px; }
+  .btn { display:inline-block; background:var(--accent); color:#fff; padding:12px 26px; border-radius:30px; text-decoration:none; margin:8px 6px; border:none; cursor:pointer; font-size:16px; }
+  section { max-width:1000px; margin:auto; padding:60px 20px; }
+  h2 { margin-bottom:24px; font-size:30px; }
+  .tabs button { background:none; border:2px solid var(--accent); color:var(--accent); padding:8px 18px; border-radius:20px; cursor:pointer; margin:0 6px 10px 0; font-size:15px; }
+  .tabs button.active { background:var(--accent); color:#fff; }
+  .menu-list { display:none; }
+  .menu-list.active { display:block; }
+  .item { display:flex; justify-content:space-between; border-bottom:1px dashed #ccc; padding:10px 0; }
+  .gallery { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; }
+  .gallery img { width:100%; height:220px; object-fit:cover; border-radius:10px; cursor:pointer; transition:.3s; }
+  .gallery img:hover { transform:scale(1.03); }
+  #lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,.9); justify-content:center; align-items:center; z-index:50; }
+  #lightbox img { max-width:92%; max-height:92%; border-radius:8px; }
+  .status { display:inline-block; padding:4px 12px; border-radius:14px; font-size:14px; background:#fff; color:var(--dark); margin-top:10px; }
+  iframe { width:100%; height:350px; border:0; border-radius:12px; margin-top:16px; }
+  footer { background:var(--dark); color:#ccc; text-align:center; padding:24px; font-size:14px; }
+  .reveal { opacity:0; transform:translateY(30px); transition:.7s; }
+  .reveal.show { opacity:1; transform:none; }
+</style>
+</head>
+<body>
+
+<header>
+  <strong>U. K. Coffee</strong>
+  <nav><a href="#menu">Меню</a><a href="#gallery">Галерея</a><a href="#contacts">Контакты</a></nav>
+</header>
+
+<div class="hero">
+  <h1>U. K. Coffee</h1>
+  <p>Свежий кофе и уют в центре Киева</p>
+  <span class="status" id="status"></span>
+  <div>
+    <a class="btn" href="#menu">Смотреть меню</a>
+    <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=50.4338483,30.404412" target="_blank">Как добраться</a>
+  </div>
+</div>
+
+<section id="about" class="reveal">
+  <h2>О нас</h2>
+  <p>Расскажите здесь о кофейне: откуда зерно, кто бариста, чем вы отличаетесь от других.</p>
+</section>
+
+<section id="menu" class="reveal">
+  <h2>Меню</h2>
+  <div class="tabs">
+    <button class="active" data-tab="coffee">Кофе</button>
+    <button data-tab="tea">Чай</button>
+    <button data-tab="dessert">Десерты</button>
+  </div>
+  <div class="menu-list active" id="coffee">
+    <div class="item"><span>Эспрессо</span><span>50 грн</span></div>
+    <div class="item"><span>Капучино</span><span>70 грн</span></div>
+    <div class="item"><span>Флэт уайт</span><span>80 грн</span></div>
+  </div>
+  <div class="menu-list" id="tea">
+    <div class="item"><span>Чёрный чай</span><span>60 грн</span></div>
+    <div class="item"><span>Матча</span><span>90 грн</span></div>
+  </div>
+  <div class="menu-list" id="dessert">
+    <div class="item"><span>Чизкейк</span><span>110 грн</span></div>
+    <div class="item"><span>Круассан</span><span>65 грн</span></div>
+  </div>
+</section>
+
+<section id="gallery" class="reveal">
+  <h2>Галерея</h2>
+  <div class="gallery">
+    <img src="photos/1.jpg" alt="Интерьер U. K. Coffee">
+    <img src="photos/2.jpg" alt="Кофе в U. K. Coffee">
+    <img src="photos/3.jpg" alt="Десерты в U. K. Coffee">
+  </div>
+</section>
+
+<section id="contacts" class="reveal">
+  <h2>Контакты</h2>
+  <p>Адрес: впишите адрес<br>Телефон: <a href="tel:+380000000000">+38 000 000 00 00</a><br>Часы: Пн-Вс 08:00 - 21:00</p>
+  <p style="margin-top:14px">
+    <a class="btn" href="https://www.google.com/maps/place/U.+K.+Coffee/@50.4336772,30.4043486,19.73z" target="_blank">Оставить отзыв на Google Maps</a>
+  </p>
+  <iframe loading="lazy" src="https://maps.google.com/maps?q=50.4338483,30.404412&z=17&output=embed"></iframe>
+</section>
+
+<footer>© 2025 U. K. Coffee</footer>
+
+<div id="lightbox"><img alt=""></div>
+
+<script>
+// Вкладки меню
+document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('.tabs button, .menu-list').forEach(e => e.classList.remove('active'));
+  b.classList.add('active');
+  document.getElementById(b.dataset.tab).classList.add('active');
+});
+
+// Лайтбокс
+const lb = document.getElementById('lightbox'), lbImg = lb.querySelector('img');
+document.querySelectorAll('.gallery img').forEach(img => img.onclick = () => { lbImg.src = img.src; lb.style.display = 'flex'; });
+lb.onclick = () => lb.style.display = 'none';
+
+// Открыто / закрыто (поменяйте часы)
+const OPEN = 8, CLOSE = 21, h = new Date().getHours();
+const st = document.getElementById('status');
+st.textContent = (h >= OPEN && h < CLOSE) ? 'Сейчас открыто' : 'Сейчас закрыто';
+
+// Анимация появления
+const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('show')), {threshold:.15});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
